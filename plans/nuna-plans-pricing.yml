@@ -1,0 +1,52 @@
+generated: '2026-08-26'
+method: searched
+source: >-
+  Walked every page in https://www.nuna.com/page-sitemap.xml (150 URLs) and read the commercial pages
+  directly: /providers/, /provider-plans/, /patients/, /access/, /get-started/, /sales-inquiry/,
+  /resources/.
+name: Nuna plans + pricing
+plan_count: 0
+pricing_published: false
+pricing_page: null
+model: enterprise-contract
+note: >-
+  Nuna publishes no pricing of any kind — no tiers, no list price, no quota, no overage, no free tier
+  and no self-serve checkout. The company sells contracts to health plans, employers, government
+  agencies and provider systems, and routes every commercial enquiry to email. The page named
+  /provider-plans/ is NOT a pricing page: it renders the same marketing content as /providers/ (an
+  outcomes page ending in a "Get in touch" call to action) and names no plan or price. There is
+  likewise no API pricing, because there is no public API.
+sales_gate:
+  type: email
+  contacts:
+  - purpose: sales
+    email: sales@nuna.com
+  - purpose: general
+    email: info@nuna.com
+  - purpose: press
+    email: press@nuna.com
+  - purpose: app support
+    email: app-support@nuna.com
+  page: https://www.nuna.com/sales-inquiry/
+  page_note: >-
+    /sales-inquiry/ is a broken CMS page: the contact block is rendered as literal escaped HTML
+    ("<p>", "&rdquo;"-style curly quotes inside href attributes) instead of markup, so the mailto
+    links are not clickable. Recorded as observed, not as a judgement.
+end_user_cost:
+  product: Nuna chronic-care app (iOS/Android)
+  cost_to_patient: >-
+    Presented as no-cost to eligible patients — access is delivered through a Medicare program and
+    through partner provider systems (Hill Physicians, Rush, Cleveland Clinic, Northwestern, Sanitas)
+    rather than sold to the individual. Nuna does not state the price it charges those partners.
+  eligibility_page: https://www.nuna.com/access/
+x-evidence:
+- url: https://www.nuna.com/provider-plans/
+  http_status: 200
+  fetched: '2026-08-26'
+- url: https://www.nuna.com/sales-inquiry/
+  http_status: 200
+  fetched: '2026-08-26'
+- url: https://www.nuna.com/page-sitemap.xml
+  http_status: 200
+  fetched: '2026-08-26'
+  note: 150 URLs, none of which is a pricing page.

@@ -1,7 +1,17 @@
 aid: nuna
 name: Nuna
-description: 'Nuna is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Nuna Incorporated is a San Francisco healthcare data and technology company founded in 2010 by Jini
+  Kim and David Chen. Nuna built the first national Medicaid claims dataset and data pipeline for the
+  Centers for Medicare & Medicaid Services, and has since moved its consumer-facing product to an
+  AI-powered chronic-care coaching app delivered through health plans, employers and provider systems
+  such as Hill Physicians, Rush, Cleveland Clinic, Northwestern and Sanitas. Nuna sells to health
+  plans, employers, government agencies and provider organizations rather than to developers: as of
+  this profile the company publishes no public developer portal, API reference, or machine-readable
+  API contract of any kind. Its public engineering output is a small set of open-source internal
+  tooling repositories under the NunaInc GitHub organization, and its public security posture is
+  documented through a Vanta-hosted trust center covering SOC 2 Type II and HIPAA/HITECH.
+image: https://www.nuna.com/wp-content/uploads/2025/08/nuna-logo.svg
 url: https://raw.githubusercontent.com/api-evangelist/nuna/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
@@ -12,6 +22,15 @@ created: '2026-08-26'
 modified: '2026-08-26'
 tags:
 - Company
+- Healthcare
+- Health Data
+- Medicaid
+- Medicare
+- Analytics
+- Chronic Care
+- Digital Health
+- Artificial Intelligence
+- Mobile
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +38,69 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/nuna-domain-security.yml
 - type: Website
-  url: https://forgeglobal.com/nuna_stock/
+  url: https://www.nuna.com/
+- type: About
+  url: https://www.nuna.com/about-us/
+- type: Blog
+  url: https://www.nuna.com/press/
+- type: Support
+  url: https://www.nuna.com/contact-us/
+- type: GitHubOrganization
+  url: https://github.com/NunaInc
+- type: TermsOfService
+  url: https://www.nuna.com/terms-of-service/
+- type: PrivacyPolicy
+  url: https://www.nuna.com/privacy/
+- type: SignUp
+  url: https://www.nuna.com/get-started/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/nuna-inc/
+- type: VulnerabilityDisclosure
+  url: security/nuna-vulnerability-disclosure.yml
+- type: Security
+  url: security/nuna-vulnerability-disclosure.yml
+- type: TrustCenter
+  url: security/nuna-trust-center.yml
+- type: Trust
+  url: https://www.nuna.com/trust/
+- type: Compliance
+  url: security/nuna-trust-center.yml
+- type: Conformance
+  url: conformance/nuna-conformance.yml
+- type: Packages
+  url: packages/nuna-packages.yml
+- type: Plans
+  url: plans/nuna-plans-pricing.yml
+- type: LLMsTxt
+  url: llms/nuna-llms.txt
+x-enrichment:
+  date: '2026-08-26'
+  status: minimal
+  artifacts_added: 8
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Nuna sells a consumer chronic-care mobile app and contracted enterprise health-data services, and
+    ships no developer surface at all: api.nuna.com, developer.nuna.com and docs.nuna.com are all
+    NXDOMAIN, every one of the 150 URLs in www.nuna.com/page-sitemap.xml is marketing, patient-app or
+    legal content with no developer page among them, /openapi.json /swagger.json /api-docs /llms.txt
+    and all eight probed /.well-known/ paths return 404, and the six public NunaInc GitHub
+    repositories are internal build and data tooling containing no OpenAPI, AsyncAPI, GraphQL SDL or
+    service .proto.
+  evidence:
+    - url: https://www.nuna.com/page-sitemap.xml
+      status: 200
+    - url: https://www.nuna.com/openapi.json
+      status: 404
+    - url: https://www.nuna.com/.well-known/api-catalog
+      status: 404
+    - url: https://www.nuna.com/.well-known/agent-card.json
+      status: 404
+    - url: https://developer.nuna.com/
+      status: 0
+  checked: '2026-08-26'

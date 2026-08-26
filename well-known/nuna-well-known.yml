@@ -1,0 +1,47 @@
+generated: '2026-08-26'
+method: probed
+source: >-
+  Direct HTTP probe of every /.well-known/ path in the API Evangelist enrichment contract against the
+  only host Nuna operates a public web surface on (www.nuna.com). The api.nuna.com, developer.nuna.com,
+  docs.nuna.com, app.nuna.com, my.nuna.com and partner.nuna.com subdomains do not resolve (NXDOMAIN),
+  so there is no additional host to probe.
+name: Nuna .well-known probe
+note: >-
+  Every probed path returned 404. www.nuna.com is a WordPress site behind Cloudflare/WP Engine; the
+  404 body is the site's HTML 404 page, not a document. No WellKnown or SecurityTxt pointer is wired
+  into apis.yml because nothing was served — this file records a verified absence, not a presence.
+hosts:
+- host: www.nuna.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+x-non-resolving-hosts:
+- api.nuna.com
+- developer.nuna.com
+- developers.nuna.com
+- docs.nuna.com
+- app.nuna.com
+- my.nuna.com
+- partner.nuna.com

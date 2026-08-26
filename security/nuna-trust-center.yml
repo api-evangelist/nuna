@@ -1,0 +1,71 @@
+generated: '2026-08-26'
+method: searched
+source: https://www.nuna.com/trust/
+name: Nuna Trust Center
+trust_center:
+  published: true
+  summary_page: https://www.nuna.com/trust/
+  url: https://app.vanta.com/nuna.com/trust/048n92bu6ryb8pixhtfn3i
+  platform: Vanta
+  self_service: true
+  note: >-
+    The Vanta-hosted trust center returns HTTP 200 but the body is a client-rendered SPA shell, so the
+    document inventory and control status are only readable in a browser. The certifications below are
+    quoted from Nuna's own server-rendered /trust/ page, not from the SPA.
+certifications:
+- name: SOC 2 Type II
+  status: audited
+  evidence: >-
+    "We undergo SOC 2 Type II audits and share the resulting security, availability, and
+    confidentiality reports with our customers."
+  trust_service_criteria:
+  - security
+  - availability
+  - confidentiality
+  report_access: on request to customers
+- name: HIPAA
+  status: compliant
+  evidence: >-
+    "We meet all HIPAA and HITECH requirements, including the Privacy, Security, and Breach
+    Notification Rules. All vendors and third parties operate under Business Associate Agreements
+    (BAAs)."
+- name: HITECH
+  status: compliant
+  evidence: Stated alongside HIPAA on the /trust/ page.
+frameworks:
+- name: NIST AI Risk Management Framework
+  role: AI governance framework alignment
+  evidence: >-
+    "Our AI governance framework is aligned with the NIST AI Risk Management Framework to ensure
+    safety, fairness, and transparency at every stage."
+- name: NIST (general)
+  role: policy framework for application security, data privacy, business continuity, change
+    management, incident response
+  evidence: '"Our policies follow current HIPAA and NIST frameworks across core areas..."'
+ai_governance:
+  human_oversight: >-
+    "We establish clear lines of accountability for all decisions made with the assistance of AI.
+    Human oversight is integrated into all sensitive use-cases."
+  independent_review: >-
+    "annual, independent security reviews and vulnerability assessments of our AI models and
+    infrastructure"
+  training_on_customer_data: false
+  training_statement: >-
+    "client data is never used to train any proprietary or third-party AI models. Instead, we
+    integrate commercially available foundation models in a secure configuration."
+not_claimed:
+- ISO 27001
+- ISO 27017
+- ISO 27018
+- PCI DSS
+- FedRAMP
+- HITRUST
+x-evidence:
+- url: https://www.nuna.com/trust/
+  http_status: 200
+  fetched: '2026-08-26'
+- url: https://app.vanta.com/nuna.com/trust/048n92bu6ryb8pixhtfn3i
+  http_status: 200
+  content_type: text/html
+  fetched: '2026-08-26'
+  note: 200 but a 5.3 KB SPA shell; content requires script execution.

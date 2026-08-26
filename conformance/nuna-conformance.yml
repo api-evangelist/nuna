@@ -1,0 +1,81 @@
+generated: '2026-08-26'
+method: searched
+source: https://www.nuna.com/trust/
+name: Nuna standards + compliance conformance
+note: >-
+  Nuna publishes no OpenAPI, AsyncAPI, GraphQL SDL, Protobuf or WSDL contract, so no technical API
+  conformance (oauth2, oidc, rfc9457, pagination, idempotency, json:api) can be derived — those
+  entries are recorded as unknown rather than false, because there is no contract to read them from.
+  The entries that ARE assertable come from Nuna's own server-rendered trust page.
+conformance:
+- id: hipaa
+  name: HIPAA Privacy, Security and Breach Notification Rules
+  conforms: true
+  evidence:
+    source: https://www.nuna.com/trust/
+    quote: >-
+      "We meet all HIPAA and HITECH requirements, including the Privacy, Security, and Breach
+      Notification Rules. All vendors and third parties operate under Business Associate Agreements
+      (BAAs)."
+- id: hitech
+  name: HITECH Act
+  conforms: true
+  evidence:
+    source: https://www.nuna.com/trust/
+    quote: '"We meet all HIPAA and HITECH requirements"'
+- id: soc2-type-ii
+  name: AICPA SOC 2 Type II (security, availability, confidentiality)
+  conforms: true
+  evidence:
+    source: https://www.nuna.com/trust/
+    quote: >-
+      "We undergo SOC 2 Type II audits and share the resulting security, availability, and
+      confidentiality reports with our customers."
+- id: nist-ai-rmf
+  name: NIST AI Risk Management Framework
+  conforms: true
+  evidence:
+    source: https://www.nuna.com/trust/
+    quote: >-
+      "Our AI governance framework is aligned with the NIST AI Risk Management Framework to ensure
+      safety, fairness, and transparency at every stage."
+- id: oauth2
+  name: OAuth 2.0
+  conforms: unknown
+  evidence:
+    note: No public API contract or auth documentation exists to assert this against.
+- id: rfc9457
+  name: RFC 9457 Problem Details for HTTP APIs
+  conforms: unknown
+  evidence:
+    note: No public API contract exists to assert this against.
+- id: rfc9116
+  name: RFC 9116 security.txt
+  conforms: false
+  evidence:
+    source: https://www.nuna.com/.well-known/security.txt
+    http_status: 404
+    note: >-
+      Nuna runs a coordinated vulnerability disclosure program at /report-an-issue/ but does not
+      publish the RFC 9116 file that would make it machine-discoverable.
+domain_standards:
+- id: fhir
+  name: HL7 FHIR
+  conforms: unknown
+  evidence:
+    note: >-
+      Nuna's business is Medicaid/Medicare claims data and a chronic-care app, the market where FHIR
+      (and the CMS Interoperability and Patient Access rule) is the domain standard. Nothing on
+      nuna.com, in the NunaInc GitHub organization, or in any probed .well-known path declares a FHIR
+      capability statement, endpoint or profile. Recorded as unknown, NOT false — the absence of a
+      public contract means the signature cannot be read either way.
+- id: x12
+  name: ASC X12 (837/835 healthcare claims)
+  conforms: unknown
+  evidence:
+    note: >-
+      Claims processing is core to Nuna's Medicaid data platform, but no public contract or
+      transaction-set documentation is published to verify a message type.
+x-non-penalty: >-
+  domain_standard_conformance is reward-only. Nuna is not penalised for the unknown entries above;
+  they are recorded so a later pass can resolve them if Nuna ever publishes a contract.

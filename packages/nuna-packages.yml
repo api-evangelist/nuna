@@ -1,0 +1,83 @@
+generated: '2026-08-26'
+method: searched
+source: >-
+  Registry metadata from pypi.org/pypi/<pkg>/json and registry.npmjs.org, plus the NunaInc GitHub
+  organization repository listing (github.com/NunaInc).
+name: Nuna packages
+note: >-
+  Nuna publishes NO API client SDK, because Nuna publishes no public API. The one first-party package
+  found is an internal data-engineering library, so no `type: SDKs` pointer is wired into apis.yml —
+  counting it as an SDK would credit Nuna with a client library for an API that does not exist.
+packages:
+- name: nuna-sql-tools
+  registry: pypi
+  url: https://pypi.org/project/nuna-sql-tools/
+  official: true
+  official_evidence: >-
+    PyPI metadata names the author as "Nuna Inc." with author_email catalin@nuna.com and homepage
+    https://github.com/NunaInc/sql_tools, which is Nuna's own GitHub organization (org blog field is
+    https://www.nuna.com).
+  language: python
+  kind: data-engineering-library
+  api_client: false
+  license: Apache 2.0
+  version: 0.0.34
+  published: '2022-11-29'
+  first_published: '2022-02-03'
+  release_count: 22
+  repository: https://github.com/NunaInc/sql_tools
+  description: >-
+    "Nuna Sql Tools contains utilities to create and manipulate schemas and sql statements." Python
+    libraries for producing and maintaining data-analysis projects; includes a Protobuf-based schema
+    definition layer (dataschema/Schema.proto).
+  note: >-
+    DECAY SIGNAL: last release 2022-11-29, roughly 3 years 9 months before this profile date. The
+    backing repository github.com/NunaInc/sql_tools is not archived and shows 2025 activity, so the
+    published package trails the source.
+- name: nudl
+  registry: null
+  url: https://github.com/NunaInc/nudl
+  official: true
+  official_evidence: Published under Nuna's own GitHub organization, github.com/NunaInc.
+  language: c++
+  kind: language-and-compiler
+  api_client: false
+  version: null
+  published: null
+  note: >-
+    "NUna Data Language" — a first-party DSL and compiler. Distributed as source only; no PyPI, npm,
+    crates.io, Maven, NuGet, pkg.go.dev or RubyGems package exists for it, so there is no registry
+    metadata endpoint to read a version or release date from. Recorded as checked-and-absent, not
+    unchecked.
+registries_checked:
+- registry: pypi
+  queries:
+  - name: nuna-sql-tools
+    status: 200
+    result: first-party hit
+  - name: nuna
+    status: 200
+    result: >-
+      NOT Nuna Inc. — "Nuna" 1.0.4 by author Steve28 <holiday28784@gmail.com>, homepage
+      github.com/pl-Steve28-lq/PyNuna. Name collision; excluded.
+  - name: nudl
+    status: 404
+- registry: npm
+  queries:
+  - name: nuna
+    status: 200
+    result: >-
+      NOT Nuna Inc. — version 0.0.0, no description, no repository, maintainer tphp
+      <336296@qq.com>. Name-squat; excluded.
+  - name: '@nuna/sdk'
+    status: 404
+  - name: nuna-sdk
+    status: 404
+- registry: crates.io
+  queries: []
+  note: Not queried — Nuna publishes no Rust source in its public GitHub organization.
+excluded:
+- name: flutter_chat_ui
+  reason: >-
+    Present in the NunaInc GitHub organization but it is a fork of the community-maintained
+    flyerhq/flutter_chat_ui package, not a Nuna-authored or Nuna-published artifact.
